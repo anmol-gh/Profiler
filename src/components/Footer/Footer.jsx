@@ -1,7 +1,11 @@
-const Footer = () => {
-  return (
-    <div>Footer</div>
-  )
-}
+import "./Footer.css"
 
-export default Footer
+const Footer = () => {
+	return (
+		<footer className="footer">
+			Made with ❤️ by <span> Anmol Ghai</span>
+		</footer>
+	);
+};
+
+export default Footer;
