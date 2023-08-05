@@ -1,4 +1,6 @@
-const click = () => {console.log("I have been clicked") };
+import "./Search.css"
+
+const click = () => { console.log("I have been clicked") };
 
 const Search = () => {
 	return (

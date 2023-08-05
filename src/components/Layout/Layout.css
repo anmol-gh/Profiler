@@ -1,0 +1,32 @@
+
+.main-section {
+	display: flex;
+	columns: 2;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+}
+
+.main-section-child:nth-child(1) {
+	align-items: end;
+}
+
+.main-section-child {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+}
+
+.company {
+	font-size: 1rem;
+	cursor: default;
+	border-radius: 0.1rem;
+	background: #a03affbd;
+	box-shadow: 0px 4px 5px 0px rgba(255, 255, 255, 0);
+	backdrop-filter: blur(11.5px);
+	text-align: center;
+	color: white;
+	width: 40%;
+	padding: 1rem;
+	margin: 1rem;
+}

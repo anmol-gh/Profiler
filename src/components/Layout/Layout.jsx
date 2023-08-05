@@ -1,3 +1,5 @@
+import "./Layout.css";
+
 const Layout = () => {
 	return (
 		<>
