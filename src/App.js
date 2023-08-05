@@ -7,12 +7,12 @@ import "./App.css";
 
 const App = () => {
 	return (
-		<div>
-			<Header/>
+		<>
+			<Header />
 			<Search />
 			<Layout />
 			<Footer />
-		</div>
+		</>
 	);
 };
 export default App;

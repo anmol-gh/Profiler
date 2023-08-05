@@ -7,7 +7,7 @@ const Header = () => {
 		<>
 			<h1 className='title'>PROFILER</h1>
 			<p className='description'>
-				Check username availability on <br></br>{" "}
+				Check username availability on{" "}
 				<span className='description-span'>
 					<Typewriter
 						options={{ loop: true, delay: 100, deleteSpeed: "natural" }}

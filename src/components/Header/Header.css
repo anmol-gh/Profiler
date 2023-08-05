@@ -15,8 +15,11 @@
 }
 
 .description-span {
-	box-sizing: border-box;
 	background-color: white;
 	color: #8a2be2;
 	font-weight: 900;
+}
+
+.Typewriter {
+    display: inline;
 }
