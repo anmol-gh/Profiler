@@ -8,20 +8,32 @@ const Layout = () => {
 		<>
 			<section className='main-section'>
 				<div className='main-section-child'>
-					<div id='dd' className='company'>
+					<div id='Instagram' className='company'>
 						Instagram
 					</div>
-					<div className='company '>Fueler</div>
-					<div className='company'>Twitter</div>
-					<div className='company'>Behance</div>
-					<div className='company'>Buy me a Coffee</div>
+					<div id='Fueler' className='company '>
+						Fueler
+					</div>
+					<div id='Behance' className='company'>
+						Behance
+					</div>
+					<div id='Buy' className='company'>
+						Buy me a Coffee
+					</div>
 				</div>
 				<div className='main-section-child'>
-					<div className='company'>LinkedIn</div>
-					<div className='company'>Github</div>
-					<div className='company'>Calendly</div>
-					<div className='company'>Pinterest</div>
-					<div className='company'>Quora</div>
+					<div id='Github' className='company'>
+						Github
+					</div>
+					<div id='Calendly' className='company'>
+						Calendly
+					</div>
+					<div id='Pinterest' className='company'>
+						Pinterest
+					</div>
+					<div id='Quora' className='company'>
+						Quora
+					</div>
 				</div>
 			</section>
 		</>

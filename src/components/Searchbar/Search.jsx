@@ -17,8 +17,89 @@ const Search = () => {
 	// Function to handle Button Click
 	const handleClick = async (event) => {
 		setUpdate(username);
-		console.log("clicked");
-		document.getElementsByClassName("company")[0].className = "company";
+
+		// the below snippet resets the appearance of the labels when button is clicked
+		const unavailablePlatforms = document.getElementsByClassName("unavailable");
+		const availablePlatforms = document.getElementsByClassName("available");
+		const errorPlatforms = document.getElementsByClassName("error");
+		// console.log(unavailablePlatforms);
+		// console.log(availablePlatforms);
+
+		for (let platform = 0; platform < unavailablePlatforms.length; platform++) {
+			unavailablePlatforms[platform].className = "company";
+		}
+
+		for (let platform = 0; platform < availablePlatforms.length; platform++) {
+			availablePlatforms[platform].className = "company";
+		}
+		for (let platform = 0; platform < errorPlatforms.length; platform++) {
+			errorPlatforms[platform].className = "company";
+		}
+
+		/// API Requests to platforms that provide API
+
+		//For Github	
+		async function Github() {
+			try {
+				const x = await axios
+					.get(`https://api.github.com/users/${username}`)
+					.then((res) => {
+						if (res.status == 200) {
+							document.getElementById("Github").className =
+								"company unavailable";
+						}
+						return res;
+					})
+					.catch((err) => {
+						if (err.request.status == 404) {
+							document.getElementById("Github").className = "company available";
+						}
+					});
+			} catch (error) {
+				return error;
+			}
+		}
+		Github();
+	
+
+		async function Fueler() {
+			///anmolssssss
+
+			https: try {
+				const x = await axios
+					.get(`https://fueler.io/${username}`)
+					.then((res) => {
+						console.log(res, res.status)
+						if (res.status == 200) {
+							document.getElementById("Fueler").className =
+								"company unavailable";
+						}
+						return res;
+					})
+					.catch((err) => {
+						if (err.request.status == 404) {
+							document.getElementById("Fueler").className = "company available";
+						}
+					});
+			} catch (error) {
+				return error;
+			}
+		}
+		Fueler();
+		//For Fueler
+
+		// axios
+		// 	.get(`https://fueler.io/${username}`)
+		// 	.then(
+		// 		(res) => console.log(res.data, "found"),
+		// 		(document.getElementById("Fueler").className = "company available")
+		// 	)
+		// 	.catch(
+		// 		(err) => console.log(err, "not found fueler"),
+		// 		(document.getElementById("Fueler").className = "company available")
+		// 	);
+
+		// below snippet send request to the backend
 		try {
 			const response = await axios.post("http://localhost:8800/insta", {
 				username,
@@ -26,15 +107,12 @@ const Search = () => {
 
 			console.log(response.data);
 			if (response.data == "Unavailable") {
-				console.log(document.getElementsByClassName("company")[0]);
-				document.getElementsByClassName("company")[0].className =
-					"company unavailable";
+				console.log(document.getElementById("Instagram"));
+				document.getElementById("Instagram").className = "company unavailable";
 			} else if (response.data == "Available") {
-				document.getElementsByClassName("company")[0].className =
-					"company available";
+				document.getElementById("Instagram").className = "company available";
 			} else {
-				document.getElementsByClassName("company")[0].className =
-					"company error";
+				document.getElementById("Instagram").className = "company error";
 			}
 		} catch (error) {
 			console.log(error);

@@ -18,14 +18,14 @@
 }
 
 .company {
-	font-size: 1rem;
+	font-size: 1.2rem;
 	cursor: default;
 	border-radius: 0.1rem;
 	background: #a03affbd;
 	box-shadow: 0px 4px 5px 0px rgba(255, 255, 255, 0);
 	text-align: center;
 	color: white;
-	width: 40%;
+	width: 60%;
 	padding: 0.8rem;
 	margin: 1rem;
 	border: 0.2rem solid #8a2be2;
