@@ -38,85 +38,164 @@ const Search = () => {
 
 		/// API Requests to platforms that provide API
 
-		//For Github	
+		//For Github
 		async function Github() {
+			const github = document.getElementById("Github");
 			try {
-				const x = await axios
-					.get(`https://api.github.com/users/${username}`)
-					.then((res) => {
-						if (res.status == 200) {
-							document.getElementById("Github").className =
-								"company unavailable";
-						}
-						return res;
-					})
-					.catch((err) => {
-						if (err.request.status == 404) {
-							document.getElementById("Github").className = "company available";
-						}
-					});
+				const githubAPI = fetch(`https://api.github.com/users/${username}`);
+				const githubStatus = (await githubAPI).status;
+				if (githubStatus === 200) {
+					github.className = "company unavailable";
+				} else if (githubStatus === 404) {
+					github.className = "company available";
+				} else {
+					github.className = "company error";
+				}
 			} catch (error) {
-				return error;
+				github.className = "company error";
 			}
 		}
 		Github();
-	
 
-		async function Fueler() {
-			///anmolssssss
-
-			https: try {
-				const x = await axios
-					.get(`https://fueler.io/${username}`)
-					.then((res) => {
-						console.log(res, res.status)
-						if (res.status == 200) {
-							document.getElementById("Fueler").className =
-								"company unavailable";
-						}
-						return res;
-					})
-					.catch((err) => {
-						if (err.request.status == 404) {
-							document.getElementById("Fueler").className = "company available";
-						}
-					});
+		//For Instagram
+		async function Instagram() {
+			const instagram = document.getElementById("Instagram");
+			try {
+				const response = await axios.post("http://localhost:8800/insta", {
+					username,
+				});
+				if (response.data === "Unavailable") {
+					instagram.className = "company unavailable";
+				} else if (response.data === "Available") {
+					instagram.className = "company available";
+				} else {
+					instagram.className = "company error";
+				}
 			} catch (error) {
-				return error;
+				instagram.className = "company error";
+			}
+		}
+		Instagram();
+
+		//For Fueler
+		async function Fueler() {
+			const fueler = document.getElementById("Fueler");
+			try {
+				const response = await axios.post("http://localhost:8800/fueler", {
+					username,
+				});
+				const fuelerStatus = response.status;
+				if (fuelerStatus === 200) {
+					fueler.className = "company unavailable";
+				} else if (fuelerStatus === 404) {
+					fueler.className = "company available";
+				} else {
+					fueler.className = "company error";
+				}
+			} catch (error) {
+				if (error.message === "Request failed with status code 404") {
+					fueler.className = "company available";
+				} else {
+					fueler.className = "company error";
+				}
 			}
 		}
 		Fueler();
-		//For Fueler
 
-		// axios
-		// 	.get(`https://fueler.io/${username}`)
-		// 	.then(
-		// 		(res) => console.log(res.data, "found"),
-		// 		(document.getElementById("Fueler").className = "company available")
-		// 	)
-		// 	.catch(
-		// 		(err) => console.log(err, "not found fueler"),
-		// 		(document.getElementById("Fueler").className = "company available")
-		// 	);
-
-		// below snippet send request to the backend
-		try {
-			const response = await axios.post("http://localhost:8800/insta", {
-				username,
-			});
-
-			console.log(response.data);
-			if (response.data == "Unavailable") {
-				console.log(document.getElementById("Instagram"));
-				document.getElementById("Instagram").className = "company unavailable";
-			} else if (response.data == "Available") {
-				document.getElementById("Instagram").className = "company available";
-			} else {
-				document.getElementById("Instagram").className = "company error";
+		async function Calendly() {
+			const calendly = document.getElementById("Calendly");
+			try {
+				const response = await axios.post("http://localhost:8800/calendly", {
+					username,
+				});
+				if (response.status === 200) {
+					calendly.className = "company unavailable";
+				} else if (response.status === 404) {
+					calendly.className = "company available";
+				} else {
+					calendly.className = "company error";
+				}
+			} catch (error) {
+				if (error.message === "Request failed with status code 404") {
+					calendly.className = "company available";
+				} else {
+					calendly.className = "company error";
+				}
 			}
-		} catch (error) {
-			console.log(error);
 		}
+		Calendly();
+
+		async function Behance() {
+			const behance = document.getElementById("Behance");
+			try {
+				const response = await axios.post("http://localhost:8800/behance", {
+					username,
+				});
+				const behanceStatus = response.status;
+				if (behanceStatus === 200) {
+					behance.className = "company unavailable";
+				} else if (behanceStatus === 404) {
+					behance.className = "company available";
+				} else {
+					behance.className = "company error";
+				}
+			} catch (error) {
+				if (error.message === "Request failed with status code 404") {
+					behance.className = "company available";
+				} else {
+					behance.className = "company error";
+				}
+			}
+		}
+		Behance();
+
+
+		async function Buy() {
+			const buy = document.getElementById("Buy");
+			try {
+				const response = await axios.post("http://localhost:8800/buy", {
+					username,
+				});
+				const buyStatus = response.status;
+				if (buyStatus === 200) {
+					buy.className = "company unavailable";
+				} else if (buyStatus === 301) {
+					buy.className = "company available";
+				} else {
+					buy.className = "company error";
+				}
+			} catch (error) {
+				if (error.message === "Request failed with status code 404") {
+					buy.className = "company available";
+				} else {
+					buy.className = "company error";
+				}
+			}
+		}
+		Buy();
+		async function Dribbble() {
+			const dribbble = document.getElementById("Dribbble");
+			try {
+				const response = await axios.post("http://localhost:8800/dribbble", {
+					username,
+				});
+				const buyStatus = response.status;
+				if (buyStatus === 200) {
+					dribbble.className = "company unavailable";
+				} else if (buyStatus === 301) {
+					dribbble.className = "company available";
+				} else {
+					dribbble.className = "company error";
+				}
+			} catch (error) {
+				if (error.message === "Request failed with status code 404") {
+					dribbble.className = "company available";
+				} else {
+					dribbble.className = "company error";
+				}
+			}
+		}
+		Dribbble();
 	};
 
 	return (

@@ -2,8 +2,6 @@ import { useState } from "react";
 import "./Layout.css";
 
 const Layout = () => {
-	//useState for className
-	const [className, setClassName] = useState({ classname: "dd" });
 	return (
 		<>
 			<section className='main-section'>
@@ -28,8 +26,8 @@ const Layout = () => {
 					<div id='Calendly' className='company'>
 						Calendly
 					</div>
-					<div id='Pinterest' className='company'>
-						Pinterest
+					<div id='Dribbble' className='company'>
+						Dribbble
 					</div>
 					<div id='Quora' className='company'>
 						Quora
@@ -40,5 +38,5 @@ const Layout = () => {
 	);
 };
 
-// document.getElementById("dd").classList.add(className);
+
 export default Layout;
