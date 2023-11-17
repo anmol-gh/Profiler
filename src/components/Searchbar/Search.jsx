@@ -220,7 +220,29 @@ const Search = () => {
 			}
 		}
 		Dribbble();
-		
+		async function Sanchar() {
+			const sanchar = document.getElementById("Sanchar");
+
+			try {
+				const response = await axios.post(
+					"https://kind-teal-bunny-vest.cyclic.app/sanchar",
+					{
+						username,
+					}
+				);
+				console.log(response.data, "sanchar");
+				if (response.data === "Unavailable") {
+					sanchar.className = "company unavailable"
+				} else if (response.data === "Available") {
+					sanchar.className = "company available"
+				} else {
+					sanchar.className = "company error"
+				}
+			} catch (error) {
+				console.log(error);
+			}
+		}
+		Sanchar();
 	};
 
 	return (
