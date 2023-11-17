@@ -29,8 +29,9 @@ const Layout = () => {
 					<div id='Dribbble' className='company'>
 						Dribbble
 					</div>
-					<div id='Quora' className='company'>
+					<div id='Quora' className='error company'>
 						Quora
+						{/* <span className='error tooltiptext'> Currently Unavailable</span> */}
 					</div>
 				</div>
 			</section>

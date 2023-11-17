@@ -2,6 +2,13 @@ import "./Search.css";
 import { useState } from "react";
 import axios from "axios";
 
+//to show when results are loading
+const searching = (
+	<div>
+		<p className='paragraph'> Searching </p>
+	</div>
+);
+
 const Search = () => {
 	// useState for Input Field
 	const [username, setUsername] = useState({ username: "" });
@@ -61,9 +68,12 @@ const Search = () => {
 		async function Instagram() {
 			const instagram = document.getElementById("Instagram");
 			try {
-				const response = await axios.post("http://localhost:8800/insta", {
-					username,
-				});
+				const response = await axios.post(
+					"https://kind-teal-bunny-vest.cyclic.app/insta",
+					{
+						username,
+					}
+				);
 				if (response.data === "Unavailable") {
 					instagram.className = "company unavailable";
 				} else if (response.data === "Available") {
@@ -81,9 +91,12 @@ const Search = () => {
 		async function Fueler() {
 			const fueler = document.getElementById("Fueler");
 			try {
-				const response = await axios.post("http://localhost:8800/fueler", {
-					username,
-				});
+				const response = await axios.post(
+					"https://kind-teal-bunny-vest.cyclic.app/fueler",
+					{
+						username,
+					}
+				);
 				const fuelerStatus = response.status;
 				if (fuelerStatus === 200) {
 					fueler.className = "company unavailable";
@@ -105,9 +118,12 @@ const Search = () => {
 		async function Calendly() {
 			const calendly = document.getElementById("Calendly");
 			try {
-				const response = await axios.post("http://localhost:8800/calendly", {
-					username,
-				});
+				const response = await axios.post(
+					"https://kind-teal-bunny-vest.cyclic.app/calendly",
+					{
+						username,
+					}
+				);
 				if (response.status === 200) {
 					calendly.className = "company unavailable";
 				} else if (response.status === 404) {
@@ -128,9 +144,12 @@ const Search = () => {
 		async function Behance() {
 			const behance = document.getElementById("Behance");
 			try {
-				const response = await axios.post("http://localhost:8800/behance", {
-					username,
-				});
+				const response = await axios.post(
+					"https://kind-teal-bunny-vest.cyclic.app/behance",
+					{
+						username,
+					}
+				);
 				const behanceStatus = response.status;
 				if (behanceStatus === 200) {
 					behance.className = "company unavailable";
@@ -149,13 +168,15 @@ const Search = () => {
 		}
 		Behance();
 
-
 		async function Buy() {
 			const buy = document.getElementById("Buy");
 			try {
-				const response = await axios.post("http://localhost:8800/buy", {
-					username,
-				});
+				const response = await axios.post(
+					"https://kind-teal-bunny-vest.cyclic.app/buy",
+					{
+						username,
+					}
+				);
 				const buyStatus = response.status;
 				if (buyStatus === 200) {
 					buy.className = "company unavailable";
@@ -176,9 +197,12 @@ const Search = () => {
 		async function Dribbble() {
 			const dribbble = document.getElementById("Dribbble");
 			try {
-				const response = await axios.post("http://localhost:8800/dribbble", {
-					username,
-				});
+				const response = await axios.post(
+					"https://kind-teal-bunny-vest.cyclic.app/dribbble",
+					{
+						username,
+					}
+				);
 				const buyStatus = response.status;
 				if (buyStatus === 200) {
 					dribbble.className = "company unavailable";
@@ -196,6 +220,7 @@ const Search = () => {
 			}
 		}
 		Dribbble();
+		
 	};
 
 	return (

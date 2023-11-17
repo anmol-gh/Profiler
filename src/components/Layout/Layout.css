@@ -45,3 +45,19 @@
 	border: 0.2rem solid rgba(64, 64, 64, 0.699);
 	background-color: rgba(116, 116, 116, 0.699);
 }
+
+.tooltiptext {
+	visibility: hidden;
+	position: absolute;
+	z-index: 1;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+}
+
+#Quora:hover .tooltiptext {
+	visibility: visible;
+}
