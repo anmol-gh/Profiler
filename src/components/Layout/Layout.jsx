@@ -29,7 +29,7 @@ const Layout = () => {
 					<div id='Dribbble' className='company'>
 						Dribbble
 					</div>
-					<div id='Sanchar' className='error company'>
+					<div id='Sanchar' className='company'>
 						Sanchar
 					</div>
 				</div>

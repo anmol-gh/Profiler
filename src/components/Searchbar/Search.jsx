@@ -69,7 +69,7 @@ const Search = () => {
 			const instagram = document.getElementById("Instagram");
 			try {
 				const response = await axios.post(
-					"https://kind-teal-bunny-vest.cyclic.app/insta",
+					"ec2-13-232-212-189.ap-south-1.compute.amazonaws.com:6431/insta",
 					{
 						username,
 					}
@@ -92,7 +92,7 @@ const Search = () => {
 			const fueler = document.getElementById("Fueler");
 			try {
 				const response = await axios.post(
-					"https://kind-teal-bunny-vest.cyclic.app/fueler",
+					"ec2-13-232-212-189.ap-south-1.compute.amazonaws.com:6431/fueler",
 					{
 						username,
 					}
@@ -119,7 +119,7 @@ const Search = () => {
 			const calendly = document.getElementById("Calendly");
 			try {
 				const response = await axios.post(
-					"https://kind-teal-bunny-vest.cyclic.app/calendly",
+					"ec2-13-232-212-189.ap-south-1.compute.amazonaws.com:6431/calendly",
 					{
 						username,
 					}
@@ -145,7 +145,7 @@ const Search = () => {
 			const behance = document.getElementById("Behance");
 			try {
 				const response = await axios.post(
-					"https://kind-teal-bunny-vest.cyclic.app/behance",
+					"ec2-13-232-212-189.ap-south-1.compute.amazonaws.com:6431/behance",
 					{
 						username,
 					}
@@ -172,7 +172,7 @@ const Search = () => {
 			const buy = document.getElementById("Buy");
 			try {
 				const response = await axios.post(
-					"https://kind-teal-bunny-vest.cyclic.app/buy",
+					"ec2-13-232-212-189.ap-south-1.compute.amazonaws.com:6431/buy",
 					{
 						username,
 					}
@@ -198,7 +198,7 @@ const Search = () => {
 			const dribbble = document.getElementById("Dribbble");
 			try {
 				const response = await axios.post(
-					"https://kind-teal-bunny-vest.cyclic.app/dribbble",
+					"ec2-13-232-212-189.ap-south-1.compute.amazonaws.com:6431/dribbble",
 					{
 						username,
 					}
@@ -225,18 +225,18 @@ const Search = () => {
 
 			try {
 				const response = await axios.post(
-					"https://kind-teal-bunny-vest.cyclic.app/sanchar",
+					"ec2-13-232-212-189.ap-south-1.compute.amazonaws.com:6431/sanchar",
 					{
 						username,
 					}
 				);
 				console.log(response.data, "sanchar");
 				if (response.data === "Unavailable") {
-					sanchar.className = "company unavailable"
+					sanchar.className = "company unavailable";
 				} else if (response.data === "Available") {
-					sanchar.className = "company available"
+					sanchar.className = "company available";
 				} else {
-					sanchar.className = "company error"
+					sanchar.className = "company error";
 				}
 			} catch (error) {
 				console.log(error);
